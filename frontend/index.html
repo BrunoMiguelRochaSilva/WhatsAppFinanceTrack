@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Finance Track</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>WhatsApp Finance Track</h1>
+      <nav>
+        <button id="logoutBtn" class="ghost-btn hidden">Sair</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="authSection" class="card">
+        <h2>Entrar ou criar conta</h2>
+        <form id="authForm" class="form-grid">
+          <label class="form-field">
+            <span>Nome</span>
+            <input type="text" id="nameInput" placeholder="Seu nome" />
+          </label>
+          <label class="form-field">
+            <span>Email</span>
+            <input type="email" id="emailInput" placeholder="exemplo@email.com" required />
+          </label>
+          <label class="form-field">
+            <span>Senha</span>
+            <input type="password" id="passwordInput" placeholder="********" required />
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary-btn">Entrar</button>
+            <button type="button" id="registerBtn" class="ghost-btn">Criar conta</button>
+          </div>
+        </form>
+        <p class="hint">Dica: envie mensagens pelo WhatsApp no formato "Gastei 45,90 no mercado" para registrar automaticamente.</p>
+        <p id="authMessage" class="feedback"></p>
+      </section>
+
+      <section id="dashboard" class="hidden">
+        <div class="grid dashboard-grid">
+          <article class="card highlight">
+            <h3>Resumo mensal</h3>
+            <div id="summaryCards" class="summary-cards"></div>
+          </article>
+          <article class="card">
+            <h3>Adicionar lançamento manual</h3>
+            <form id="expenseForm" class="form-grid">
+              <label class="form-field">
+                <span>Descrição</span>
+                <input type="text" id="descriptionInput" placeholder="Almoço, Salário..." required />
+              </label>
+              <label class="form-field">
+                <span>Valor (use negativo para despesas)</span>
+                <input type="number" id="amountInput" step="0.01" required />
+              </label>
+              <label class="form-field">
+                <span>Categoria</span>
+                <input type="text" id="categoryInput" placeholder="Alimentação" required />
+              </label>
+              <label class="form-field">
+                <span>Data</span>
+                <input type="date" id="dateInput" />
+              </label>
+              <div class="form-actions">
+                <button type="submit" class="primary-btn">Salvar</button>
+              </div>
+            </form>
+            <p id="expenseMessage" class="feedback"></p>
+          </article>
+          <article class="card span-2">
+            <h3>Histórico recente</h3>
+            <table id="expenseTable">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Descrição</th>
+                  <th>Categoria</th>
+                  <th class="amount-col">Valor</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </article>
+          <article class="card span-2">
+            <h3>Distribuição por categoria</h3>
+            <div id="categoryChart" class="chart"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <template id="summaryCardTemplate">
+      <div class="summary-card">
+        <h4></h4>
+        <p class="value"></p>
+        <p class="meta"></p>
+      </div>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

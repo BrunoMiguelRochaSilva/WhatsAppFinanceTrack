@@ -1,0 +1,250 @@
+:root {
+  --color-primary: #ffa94d;
+  --color-dark: #2c2c2c;
+  --color-light: #f5f5f5;
+  --color-white: #ffffff;
+  --color-success: #2ecc71;
+  --color-danger: #e74c3c;
+  font-family: 'Inter', 'Poppins', 'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+.topbar {
+  background: var(--color-white);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, rgba(255, 169, 77, 0.15), var(--color-white));
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-field span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+}
+
+.form-field input:focus {
+  outline: 2px solid rgba(255, 169, 77, 0.4);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primary-btn,
+.ghost-btn {
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  box-shadow: 0 10px 20px rgba(255, 169, 77, 0.3);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(255, 169, 77, 0.4);
+}
+
+.ghost-btn {
+  background: rgba(255, 169, 77, 0.12);
+  color: var(--color-dark);
+  border: 1px solid rgba(255, 169, 77, 0.3);
+}
+
+.ghost-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 169, 77, 0.2);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.feedback {
+  min-height: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.feedback.error {
+  color: var(--color-danger);
+}
+
+.feedback.success {
+  color: var(--color-success);
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dashboard-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.summary-card {
+  background: var(--color-white);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 169, 77, 0.2);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.summary-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.summary-card .value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.summary-card .meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.table-actions button {
+  background: transparent;
+  border: none;
+  color: var(--color-danger);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#expenseTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#expenseTable th,
+#expenseTable td {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.amount-col {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart {
+  min-height: 260px;
+  display: grid;
+  align-items: end;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.chart-bar {
+  background: rgba(255, 169, 77, 0.35);
+  border-radius: 12px 12px 4px 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-bar::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.chart-value {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "whatsapp-finance-track-backend",
+  "version": "1.0.0",
+  "description": "Backend for WhatsApp finance tracking platform",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
